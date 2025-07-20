@@ -68,7 +68,7 @@
         Pmt_height = 10.0 * cm * 0.5;
 
         //distances
-        Pmt_to_BGO_z = Pmt_height + BGO_height +  0* cm;
+        Pmt_to_BGO_z = Pmt_height + BGO_height +  RIndex * mm;
         Tape_z_translation = BGO_height + Tape_gap;
 
     }

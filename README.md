@@ -26,7 +26,7 @@ This repository contains a Geant4-based simulation for optical photon generation
 - [Geant4](https://geant4.web.cern.ch/) (with data sets and visualization options)
 - CMake (≥ 3.16)
 - ROOT (for waveform analysis)
-- Python 3 with `uproot`, `numpy`, and `matplotlib` for analysis scripts
+- Python 3 with `ROOT`, `numpy`, and `matplotlib` for analysis scripts
 
 ### Build Instructions
 
@@ -42,24 +42,45 @@ make
 Run a simple test using:
 
 ```bash
-./yourExecutable macros/run.mac
+./filtro
+```
+Running in non-batch mode may require to compile it with single core run manager. Modify filtro.cc if getting errors.
+
+```cpp
+ G4RunManager* runManager = new G4RunManager;
 ```
 
-You can visualize the detector and photons with:
+You can batch run with the following, where N is the PMT to BGO distance (in mm)
 
 ```bash
-./yourExecutable macros/vis.mac
+./filtro filtro.in N
+```
+Running for many events benefit greatly of having multi-core run manager. Modify filtro.cc to use N cores. 
+
+```cpp
+G4MTRunManager* runManager = new G4MTRunManager;
+runManager->SetNumberOfThreads(N);
+runManager->SetVerboseLevel(0);
 ```
 
 ## 📈 Waveform Processing
 
 After running the simulation and producing a ROOT output tree:
 
+Make sure you combine all outputs with hadd. Then cleanup removing the unecessary files.
+
+```bash
+hadd OutPut_merged_0mm.root OutPut_t*.root
+rm OutPut_t*.root
+rn OutPut.root
+```
+
+Then use the python script to go from the photon arrival histogram to pmt response waveforms:
 ```bash
 python photon_histogram_builder.py
 ```
 
-This script builds histograms of photon arrival times per event and separates Cherenkov and scintillation contributions. You can apply QE and simulate PMT response.
+This script builds histograms of photon arrival times per event and separates Cherenkov and scintillation contributions. Ita also applies the PMT QE and simulate PMT response.
 
 ## 🧪 ROOT Analysis Tips
 
