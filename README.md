@@ -98,18 +98,10 @@ tree->Draw("n_cher/n_scint:event", "trigger==1", "COLZ")
 
 ## 🎨 Customization
 
-Photon color in `vis.mac`:
+colors in `vis.mac`:
 
-- Cherenkov photons → Green
-- Scintillation photons → Purple
-- Electrons → Red
-- Positrons → Blue
-
-## 📄 License
-
-[MIT License](LICENSE) or specify your own.
-
-## ✍️ Author
-
-Bruno P. Gelli – [brunopgelli.com](https://example.com)  
-Inspired by ANNIE / DUNE / water Cherenkov physics.
+- Optical photons 	→ Green
+- Gammas			→ Purple
+- Electrons 		→ Red
+- Positrons 		→ Blue
+- Default 			→ Grey	
