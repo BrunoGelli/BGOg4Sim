@@ -2,6 +2,10 @@
 
 This repository contains a Geant4-based simulation for optical photon generation, tracking, and detection in a water Cherenkov detector context. It includes Cherenkov and scintillation photon generation, visualization macros, and a ROOT-based Python waveform builder for analysis.
 
+## ⚠️ Disclaimer ⚠️
+
+This code was developed quickly based on a prior project, and some files may be unrelated or left over from previous iterations. If anything is unclear or if you plan to use or modify this code for your own project, feel free to contact me for clarification or guidance.
+
 ## 🔧 Project Structure
 
 ```
