@@ -1,0 +1,8 @@
+/run/verbose 0
+/run/particle/verbose 0
+/control/verbose 0
+/material/verbose 0
+/particle/property/verbose 0
+/tracking/verbose 0
+/vis/verbose 0
+/run/beamOn 100000

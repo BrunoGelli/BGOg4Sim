@@ -1,0 +1,30 @@
+# Ignore build artifacts
+build/
+*.o
+*.so
+*.a
+*.out
+*.exe
+*.log
+
+# CMake files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Editor/OS junk
+*.swp
+*.swo
+.DS_Store
+.vscode/
+.idea/
+__pycache__/
+*.pyc
+
+# ROOT files
+*.root
+
+# Python virtual env
+venv/
+.env/
