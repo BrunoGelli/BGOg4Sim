@@ -8,7 +8,7 @@ import random
 bin_width = 2  # ns
 nbins = 1500   # 2000 ns total
 time_max = nbins * bin_width
-trigger_threshold = 0.030
+trigger_threshold = 0.01
 trigger_time = 700
 limit = 1e12
 
@@ -60,11 +60,11 @@ spr = spr_model(spr_time - 23)
 spr /= np.sum(spr)
 
 # === Open input ROOT file and tree
-f = ROOT.TFile.Open("OutPut_merged_0mm.root")
+f = ROOT.TFile.Open("OutPut_merged_1mm.root")
 tree = f.Get("ph")
 
 # === Prepare output ROOT file and TTree
-outf = ROOT.TFile("waveforms_0mm.root", "RECREATE")
+outf = ROOT.TFile("waveforms_1mm.root", "RECREATE")
 
 # Auxiliary root tree with a relevant summary per event
 outtree = ROOT.TTree("events", "Photon event summary") 

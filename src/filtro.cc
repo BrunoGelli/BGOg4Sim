@@ -8,8 +8,9 @@
 
 #include "FTFP_BERT.hh"
 #include "G4OpticalPhysics.hh"
-#include "G4EmStandardPhysics_option1.hh"
-#include "G4EmStandardPhysics_option4.hh"
+// #include "G4EmStandardPhysics_option1.hh"
+// #include "G4EmStandardPhysics_option4.hh"
+#include "G4EmStandardPhysics_option3.hh"
 
 
 
@@ -52,7 +53,7 @@ int main(int argc,char** argv) {
   G4VModularPhysicsList* physicsList = new FTFP_BERT();
 
   // Use a faster electromagnetic physics option if you prefer
-  physicsList->ReplacePhysics(new G4EmStandardPhysics_option4());
+  physicsList->ReplacePhysics(new G4EmStandardPhysics_option3());
 
   // Create and configure optical physics
   G4OpticalPhysics* opticalPhysics = new G4OpticalPhysics();
